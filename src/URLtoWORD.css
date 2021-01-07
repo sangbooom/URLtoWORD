@@ -1,0 +1,17 @@
+.wrapper {
+  flex: 1;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.headerTitle {
+  font-size: 70px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.mainTitle {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
