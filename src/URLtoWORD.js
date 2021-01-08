@@ -26,6 +26,16 @@ const URLtoWORD = () => {
   //   });
   // },[]);
 
+  // useEffect(()=>{
+    // firebase
+    // .database()
+    // .ref("currentIndex")
+    // .once("value", (snapshot) => {
+    //   setNumberIndex(snapshot.val().number);
+    //   setWordIndex(snapshot.val().word);
+    // });
+  // },[])
+
   // useEffect(() => {
   //   setLoading(true);
   //   //데이터베이스에서 값 읽기
@@ -77,10 +87,11 @@ const URLtoWORD = () => {
         console.log(error);
       } else {
         // Data saved successfully!
+        console.log("wordIndex: ",wordIndex,"numberIndex: ",numberIndex);
         firebase
-      .database()
-      .ref("currentIndex")
-      .once("value", (snapshot) => {
+          .database()
+          .ref("currentIndex")
+          .once("value", (snapshot) => {
         console.log(snapshot.val());
         if(snapshot.val().number === 2){
           setDatas(
@@ -100,10 +111,6 @@ const URLtoWORD = () => {
       }
     });
   },[numberIndex,wordIndex])
-
-  useEffect(()=>{
-    console.log(numberIndex);
-  },[numberIndex])
 
   const onChangeWordToUrl = (value) => {
     //firebase 데이터베이스에서 가져옴
