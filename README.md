@@ -10,12 +10,12 @@
 ![image](https://user-images.githubusercontent.com/43921054/104095935-f6184300-52dc-11eb-9475-14ee27b3a0d8.png)
 
 #### 공용컴퓨터에서 구글 슬라이드 발표할 때 링크를 열어야 하는데, 구글 로그인을 하기 귀찮고, 보안상 불안하다.
-_____________
+
 ## 💭생각해보기
 ![image](https://user-images.githubusercontent.com/43921054/104095989-3bd50b80-52dd-11eb-986a-1817efb17899.png)
 
 #### 이 문제를 해결하기 위해서 URL을 외우기 편한 형태로 바꾸면 어떨까? 복잡한 URL을 우리가 알만한 쉬운 단어로 바꿀 수는 없을까?
-____________
+
 ## 📝사용법
 ![image](https://user-images.githubusercontent.com/43921054/104096090-bd2c9e00-52dd-11eb-9ba5-559750a85919.png)
 #### 내 컴퓨터에서 구글에 URL to WORD 검색해서 홈페이지에 들어간다.
@@ -28,7 +28,7 @@ ____________
 
 ![image](https://user-images.githubusercontent.com/43921054/104096141-0aa90b00-52de-11eb-88d4-9097c3d1e8c8.png)
 #### 공용컴퓨터에서 안녕12를 홈페이지 검색 창에 입력 -> 긴 링크로 변환
-__________
+
 ## 📰 웹사이트 기능
 주요기능 : 복잡하고 긴 URL을 외울 수 있는 단어로 변형해준다.
 
