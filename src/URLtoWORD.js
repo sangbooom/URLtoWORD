@@ -18,12 +18,29 @@ const URLtoWORD = () => {
   const [urlValue, setUrlValue] = useState("");
 
   useEffect(() => {
+    firebase
+      .database()
+      .ref("datas")
+      .once("value", (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          let childTimeStamp = childSnapshot.val().timestamp;
+          let currentTime = new Date().getTime();
+          if (currentTime - childTimeStamp >= 86400000) {
+            let deleteNode = childSnapshot.val().word;
+            firebase.database().ref("datas").child(deleteNode).remove();
+          }
+        });
+      });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       firebase.database().ref("datas").child(data).set({
         url: urlValue,
         word: data,
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
       });
-      setWordToUrlValue(`'${data}'로 변환되었습니다.`);
+      setWordToUrlValue(`'${data}' (으)로 변환되었습니다.`);
     }
   }, [data]);
 
@@ -69,7 +86,12 @@ const URLtoWORD = () => {
         onSearch={onChangeUrlToWord}
         style={{ marginBottom: 20 }}
       />
-      <TextArea rows={4} readOnly value={wordToUrlValue} />
+      <TextArea
+        rows={4}
+        readOnly
+        value={wordToUrlValue}
+        style={{ fontSize: 20 }}
+      />
 
       <div style={{ marginBottom: 40 }} />
 
@@ -82,7 +104,12 @@ const URLtoWORD = () => {
         onSearch={onChangeWordToUrl}
         style={{ marginBottom: 20 }}
       />
-      <TextArea rows={4} readOnly value={urlToWordValue} />
+      <TextArea
+        rows={4}
+        readOnly
+        value={urlToWordValue}
+        style={{ fontSize: 20 }}
+      />
     </div>
   );
 };
