@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://url-to-word.netlify.app/sitemap.xml
