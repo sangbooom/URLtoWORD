@@ -4,117 +4,46 @@ import "./URLtoWORD.css";
 import firebase from "./firebase";
 
 const { Search, TextArea } = Input;
-const wordArray = ["사과","수박","딸기","참외","귤","포도","자몽","바나나","멜론","체리","레몬","망고","키위","석류"];
-let nummberArray = [];
-for(let i=0; i<=2; i++){
-    nummberArray.push(i);
+const MAX_NUMBER = 99;
+const wordArray = ["사과", "수박", "딸기", "참외", "당근", "멜론"];
+let numberArray = [];
+for (let i = 0; i <= MAX_NUMBER; i++) {
+  numberArray.push(i);
 }
 
 const URLtoWORD = () => {
-  const [datas, setDatas] = useState("");
-  const [isLoading, setLoading] = useState(false);
+  const [data, setData] = useState("");
   const [urlToWordValue, setUrlToWordValue] = useState("");
   const [wordToUrlValue, setWordToUrlValue] = useState("");
-  const [numberIndex, setNumberIndex] = useState(0);
-  const [wordIndex, setWordIndex] = useState(0);
-
-  // 초기값 데이터베이스에 생성
-  // useEffect(()=>{
-  //   firebase.database().ref("currentIndex").set({
-  //     word: 0,
-  //     number: 0,
-  //   });
-  // },[]);
-
-  // useEffect(()=>{
-    // firebase
-    // .database()
-    // .ref("currentIndex")
-    // .once("value", (snapshot) => {
-    //   setNumberIndex(snapshot.val().number);
-    //   setWordIndex(snapshot.val().word);
-    // });
-  // },[])
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   //데이터베이스에서 값 읽기
-  //   firebase
-  //     .database()
-  //     .ref("currentIndex")
-  //     .once("value", (snapshot) => {
-  //       console.log(snapshot.val());
-  //       // if(snapshot.val().number === 100){
-  //       //   setDatas(
-  //       //     wordArray[snapshot.val().word+1] + nummberArray[0]
-  //       //   );
-  //       //   setWordIndex(snapshot.val().word+1);
-  //       //   setNumberIndex(0);
-  //       //   return;
-  //       // }
-
-  //       setDatas(
-  //         wordArray[snapshot.val().word] + nummberArray[snapshot.val().number]
-  //       );
-  //       setWordIndex(snapshot.val().word);
-  //       setNumberIndex(snapshot.val().number);
-  //     });
-  // }, []);
+  const [urlValue, setUrlValue] = useState("");
 
   useEffect(() => {
-    console.log(datas);
-    setLoading(false);
-  }, [datas]);
+    if (data) {
+      firebase.database().ref("datas").child(data).set({
+        url: urlValue,
+        word: data,
+      });
+      setWordToUrlValue(`'${data}'로 변환되었습니다.`);
+    }
+  }, [data]);
 
   const onChangeUrlToWord = (value) => {
-    // 데이터베이스에 저장
-    firebase.database().ref("datas").child(datas).set({
-      url: value,
-      word: datas,
-    });
-    // currentIndex.number++ , 만약 100이면 %100하고 currentIndex.word++
-    setWordToUrlValue(datas);
-    setNumberIndex(numberIndex + 1);
-    
+    setUrlValue(value);
+    firebase
+      .database()
+      .ref("datas")
+      .once("value", (snapshot) => {
+        let datas_length = snapshot.val()
+          ? Object.keys(snapshot.val()).length
+          : 0;
+        setData(
+          wordArray[parseInt(datas_length / MAX_NUMBER) % wordArray.length] +
+            numberArray[datas_length % MAX_NUMBER]
+        );
+      });
   };
 
-  useEffect(()=>{
-    firebase.database().ref("currentIndex").set({
-      word: wordIndex,
-      number: numberIndex,
-    },(error) => {
-      if (error) {
-        console.log(error);
-      } else {
-        // Data saved successfully!
-        console.log("wordIndex: ",wordIndex,"numberIndex: ",numberIndex);
-        firebase
-          .database()
-          .ref("currentIndex")
-          .once("value", (snapshot) => {
-        console.log(snapshot.val());
-        if(snapshot.val().number === 2){
-          setDatas(
-            wordArray[snapshot.val().word+1] + nummberArray[0]
-          );
-          setWordIndex(snapshot.val().word+1);
-          setNumberIndex(0);
-          return;
-        }
-
-        setDatas(
-          wordArray[snapshot.val().word] + nummberArray[snapshot.val().number]
-        );
-        setWordIndex(snapshot.val().word);
-        setNumberIndex(snapshot.val().number);
-      });
-      }
-    });
-  },[numberIndex,wordIndex])
-
   const onChangeWordToUrl = (value) => {
-    //firebase 데이터베이스에서 가져옴
-    // word에 맞는 url 가져오기
     firebase
       .database()
       .ref("datas")
@@ -126,10 +55,6 @@ const URLtoWORD = () => {
         setUrlToWordValue(snapshot.val()[value].url);
       });
   };
-
-  if (isLoading) {
-    return <div>{"로딩중입니다"}</div>;
-  }
 
   return (
     <div className="wrapper">
