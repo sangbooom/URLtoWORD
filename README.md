@@ -1,8 +1,8 @@
-# URL to WORD 
-> ## 더 편한 링크 옮기기 📎
+# 더 편한 링크 옮기기 - URL to WORD
+
+## 🚀 Deploy 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6fd24744-c87d-44cb-b835-6bd82ad5ef0e/deploy-status)](https://app.netlify.com/sites/url-to-word/deploys)
-
 ## ⚠문제
 발표할 때 구글 PPT를 학교 컴퓨터에 옮기려면 내 구글 아이디로 검색해서 들어가야 되어서 시간이 많이 걸려 부끄러웠던 경험이 있다.   
 보안상으로도 내 계정을 다른 컴퓨터에서 로그인하기 싫다. 공유 링크를 외우고 있으면 되는데 길어서 외우기 어렵다.
