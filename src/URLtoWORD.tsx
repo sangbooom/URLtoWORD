@@ -4,20 +4,20 @@ import "./URLtoWORD.css";
 import firebase from "./firebase";
 
 const { Search, TextArea } = Input;
-const MAX_NUMBER = 99;
-const wordArray = ["사과", "수박", "딸기", "참외", "당근", "멜론"];
-let numberArray = [];
+const MAX_NUMBER: number = 99;
+const wordArray: string[] = ["사과", "수박", "딸기", "참외", "당근", "멜론"];
+let numberArray: number[] = [];
 for (let i = 0; i <= MAX_NUMBER; i++) {
   numberArray.push(i);
 }
 
-const URLtoWORD = () => {
+const URLtoWORD: React.FC = () => {
   const [data, setData] = useState("");
   const [urlToWordValue, setUrlToWordValue] = useState("");
   const [wordToUrlValue, setWordToUrlValue] = useState("");
   const [urlValue, setUrlValue] = useState("");
 
-  useEffect(() => {
+  useEffect((): void => {
     firebase
       .database()
       .ref("datas")
@@ -33,7 +33,7 @@ const URLtoWORD = () => {
       });
   }, []);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (data) {
       firebase.database().ref("datas").child(data).set({
         url: urlValue,
@@ -42,26 +42,26 @@ const URLtoWORD = () => {
       });
       setWordToUrlValue(`'${data}' (으)로 변환되었습니다.`);
     }
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [data]);
 
-  const onChangeUrlToWord = (value) => {
+  const onChangeUrlToWord = (value: string) => {
     setUrlValue(value);
     firebase
       .database()
       .ref("datas")
       .once("value", (snapshot) => {
-        let datas_length = snapshot.val()
+        let datas_length: number = snapshot.val()
           ? Object.keys(snapshot.val()).length
           : 0;
         setData(
-          wordArray[parseInt(datas_length / MAX_NUMBER) % wordArray.length] +
+          wordArray[Math.floor(datas_length / MAX_NUMBER) % wordArray.length] +
             numberArray[datas_length % MAX_NUMBER]
         );
       });
   };
 
-  const onChangeWordToUrl = (value) => {
+  const onChangeWordToUrl = (value: string) => {
     firebase
       .database()
       .ref("datas")
