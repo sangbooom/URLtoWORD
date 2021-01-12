@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Input } from "antd";
 import "./URLtoWORD.css";
 import firebase from "./firebase";
+import { Helmet } from "react-helmet";
 
 const { Search, TextArea } = Input;
 const MAX_NUMBER: number = 99;
@@ -12,10 +13,10 @@ for (let i = 0; i <= MAX_NUMBER; i++) {
 }
 
 const URLtoWORD: React.FC = () => {
-  const [data, setData] = useState("");
-  const [urlToWordValue, setUrlToWordValue] = useState("");
-  const [wordToUrlValue, setWordToUrlValue] = useState("");
-  const [urlValue, setUrlValue] = useState("");
+  const [data, setData] = useState<string>("");
+  const [urlToWordValue, setUrlToWordValue] = useState<string>("");
+  const [wordToUrlValue, setWordToUrlValue] = useState<string>("");
+  const [urlValue, setUrlValue] = useState<string>("");
 
   useEffect((): void => {
     firebase
@@ -76,8 +77,16 @@ const URLtoWORD: React.FC = () => {
 
   return (
     <div className="wrapper">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>URL to WORD</title>
+      </Helmet>
       <div className="headerTitle">URL to WORD</div>
 
+      <Helmet>
+        <title>URL to WORD</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="mainTitle">URL to WORD</div>
       <Search
         placeholder="URL 입력"
@@ -96,6 +105,10 @@ const URLtoWORD: React.FC = () => {
 
       <div style={{ marginBottom: 40 }} />
 
+      <Helmet>
+        <title>WORD to URL</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="mainTitle">WORD to URL</div>
       <Search
         placeholder="단어 입력"
