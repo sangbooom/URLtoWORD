@@ -23,7 +23,7 @@
 ![image](https://user-images.githubusercontent.com/43921054/104096104-d0d80480-52dd-11eb-9037-543160594c28.png)
 #### 내 컴퓨터에서 변환하고싶은 링크를 검색창에 입력 -> 안녕 12로 변환
 
-![image](https://user-images.githubusercontent.com/43921054/104096128-fc5aef00-52dd-11eb-84e0-25cc3f206211.png)
+![image](https://user-images.githubusercontent.com/43921054/105051700-5f087380-5ab2-11eb-97e8-eca2cc4f6c28.png)
 #### 공용 컴퓨터에서 구글에 URL to WORD 검색해서 홈페이지에 들어간다.
 
 ![image](https://user-images.githubusercontent.com/43921054/104096141-0aa90b00-52de-11eb-88d4-9097c3d1e8c8.png)
