@@ -12,6 +12,7 @@
     "@types/react-helmet": "6.1.0",
     "antd": "4.10.0",
     "firebase": "8.2.1",
+    "netlify-plugin-submit-sitemap": "0.2.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "6.1.0",
