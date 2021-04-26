@@ -5,7 +5,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6fd24744-c87d-44cb-b835-6bd82ad5ef0e/deploy-status)](https://app.netlify.com/sites/url-to-word/deploys)
 
 - [x] **네이버** (react-helmet, Naver SearchAdvisor)
-- [ ] **구글** (google search console - sitemap 제출 문제로 아직 해결중)
+- [x] **구글** (google search console)
+
 
 ## ⚠ 문제
 발표할 때 구글 PPT를 학교 컴퓨터에 옮기려면 내 구글 아이디로 검색해서 들어가야 되어서 시간이 많이 걸려 부끄러웠던 경험이 있다.   
@@ -20,18 +21,27 @@
 
 #### 이 문제를 해결하기 위해서 URL을 외우기 편한 형태로 바꾸면 어떨까? 복잡한 URL을 우리가 알만한 쉬운 단어로 바꿀 수는 없을까?
 
-## 📝 사용법
-## 1. 내 컴퓨터에서 네이버에 URL to WORD 검색해서 사이트에 접속
-![image](https://user-images.githubusercontent.com/43921054/105051700-5f087380-5ab2-11eb-97e8-eca2cc4f6c28.png)
+<br />
 
-## 2. 내 컴퓨터에서 변환할 링크를 입력 -> 안녕12로 변환
+## 📝 사용법
+## 1. 내 컴퓨터에서 네이버 or 구글에 URL to WORD 검색해서 사이트에 접속
+![image](https://user-images.githubusercontent.com/43921054/105051700-5f087380-5ab2-11eb-97e8-eca2cc4f6c28.png)
+![image](https://user-images.githubusercontent.com/43921054/116047205-cedc5a80-a6ae-11eb-9ba7-b85c2bf3dcdd.png)
+
+<br />
+
+## 2. 내 컴퓨터에서 변환할 링크를 입력 -> 텍스트로 변환
 ![image](https://user-images.githubusercontent.com/43921054/106388193-c0203780-6420-11eb-9ff5-203e4789e83d.png)
 
+<br />
 
-## 3. 공용 컴퓨터에서 네이버에 URL to WORD 검색해서 홈페이지에 접속
+## 3. 공용 컴퓨터에서 네이버 or 구글에 URL to WORD 검색해서 홈페이지에 접속
 ![image](https://user-images.githubusercontent.com/43921054/105051700-5f087380-5ab2-11eb-97e8-eca2cc4f6c28.png)
+![image](https://user-images.githubusercontent.com/43921054/116047205-cedc5a80-a6ae-11eb-9ba7-b85c2bf3dcdd.png)
 
-## 4. 공용컴퓨터에서 안녕12를 입력 -> 긴 링크로 변환
+<br />
+
+## 4. 공용컴퓨터에서 텍스트를 입력 -> 링크로 변환
 ![image](https://user-images.githubusercontent.com/43921054/106388344-653b1000-6421-11eb-80c4-8228d7005dce.png)
 
 
