@@ -1,8 +1,14 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
 import { Input } from "antd";
-import "./URLtoWORD.css";
-import firebase from "./firebase";
+import firebase from "../../firebase";
 import { Helmet } from "react-helmet";
+import {
+  Wrapper,
+  Header_title,
+  Content_title,
+  Content_textArea,
+} from "./style";
 
 const { Search, TextArea } = Input;
 const MAX_NUMBER: number = 99;
@@ -72,22 +78,23 @@ const URLtoWORD: React.FC = () => {
           return;
         }
         setUrlToWordValue(snapshot.val()[value].url);
+        return;
       });
   };
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       <Helmet>
         <meta charSet="utf-8" />
         <title>URL to WORD</title>
       </Helmet>
-      <div className="headerTitle">URL to WORD</div>
+      <Header_title>URL to WORD</Header_title>
 
       <Helmet>
         <title>URL to WORD</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <div className="mainTitle">URL to WORD</div>
+      <Content_title>URL to WORD</Content_title>
       <Search
         placeholder="URL 입력"
         allowClear
@@ -109,7 +116,7 @@ const URLtoWORD: React.FC = () => {
         <title>WORD to URL</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <div className="mainTitle">WORD to URL</div>
+      <Content_title>WORD to URL</Content_title>
       <Search
         placeholder="단어 입력"
         allowClear
@@ -118,13 +125,12 @@ const URLtoWORD: React.FC = () => {
         onSearch={onChangeWordToUrl}
         style={{ marginBottom: 20 }}
       />
-      <TextArea
-        rows={4}
-        readOnly
-        value={urlToWordValue}
-        style={{ fontSize: 20 }}
-      />
-    </div>
+      <Content_textArea>
+        <a href={urlToWordValue} target="_blank" rel="noreferrer noopener">
+          <div>{urlToWordValue}</div>
+        </a>
+      </Content_textArea>
+    </Wrapper>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from "react";
-import URLtoWORD from './URLtoWORD';
-import './App.css';
+import URLtoWORD from "./pages/MainPage/index";
+import "./App.css";
 
 const App: React.FC = () => {
-  return <URLtoWORD />
+  return <URLtoWORD />;
 };
 
 export default App;
