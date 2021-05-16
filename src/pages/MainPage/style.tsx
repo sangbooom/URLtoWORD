@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 export const Wrapper = styled.div`
+  display: flex;
   flex: 1;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -33,4 +35,33 @@ export const Content_textArea = styled.div`
   & div {
     font-size: 20px;
   }
+`;
+
+export const Footer_container = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
+`;
+
+export const Footer = styled.a`
+  color: black;
+  &:link {
+    color: black;
+  }
+  &:visited {
+    color: black;
+  }
+  &:active {
+    color: black;
+  }
+  &:hover {
+    opacity: 0.3;
+    color: black;
+  }
+`;
+
+export const Footer_svg = styled.svg`
+  margin: 0 5px;
 `;
