@@ -39,13 +39,12 @@ export const Content_textArea = styled.div`
 
 export const Footer_container = styled.div`
   display: flex;
-  flex: 1;
+  margin: auto 0 10px;
   justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 10px;
 `;
 
 export const Footer = styled.a`
+  display: inline-flex;
   color: black;
   &:link {
     color: black;
